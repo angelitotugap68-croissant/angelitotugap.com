@@ -1,0 +1,709 @@
+/* ===========================
+   GLOBAL STYLES & VARIABLES
+   =========================== */
+
+:root{
+    --bg:#ece6e7;
+    --card:#1E293B;
+    --muted:#ece6e7;    /* updated: softer teal for secondary text */
+    --accent:#3498db;   /* updated: primary tech-blue accent */
+    --glass: rgba(52, 152, 219, 0.06);
+    --glass-strong: rgba(52, 152, 219, 0.10);
+    --text:#ece6e7;     /* updated: warm light text color */
+    --transition: 300ms cubic-bezier(.2,.9,.3,1);
+    --radius:12px;
+    --shadow: 0 6px 18px rgba(11, 17, 51, 0.6);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    padding:0;
+    background: #333638;
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.3;
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+}
+
+/* General Sections */
+.section{padding:43px 20px}
+.dark-section{background:linear-gradient(180deg, rgba(52, 73, 94, 0.3), rgba(44, 62, 80, 0.2));}
+.section-title{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:28px;font-weight:700;color:var(--text);background:#be0a0a;padding:20px 32px;border-radius:12px;display:block;width:80%;opacity:1}
+.section-title-large{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:36px;font-weight:700;color:var(--text);padding:20px 32px;border-radius:12px;display:block;width:100%;opacity:1}
+.section-slogan{text-align:center;font-size:16px;font-style:normal;color:var(--muted);margin-top:-20px;margin-bottom:24px;font-weight:500}
+.container{max-width:1200px;margin:0 auto}
+
+/* Grid */
+.grid-2{display:grid;grid-template-columns: 1fr 1fr;gap:24px;max-width:1200px;margin:0 auto;width:100%}
+
+/* Generic Card */
+.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px 0}
+.competencies{margin:0 auto;width:80%}
+.muted{color:var(--muted);font-size:13px}
+
+/* ===========================
+   HEADER & NAVIGATION
+   =========================== */
+
+/* Header */
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:60;
+    padding:18px 20px;
+    transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+    overflow-x:hidden;
+}
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:100%;
+    margin:0 auto;
+    width:100%;
+    flex-wrap:wrap;
+}
+.header.transparent{ background:transparent; }
+.header.glass{
+    background: linear-gradient(135deg, #1a284b 0%, #1e3a8a 100%);
+    backdrop-filter: blur(100px) saturate(120%);
+    box-shadow: var(--shadow);
+    border-radius: 14px;
+    padding:10px 22px;
+}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:14px}
+.brand-logo{width:44px;height:44px;object-fit:contain}
+.logo-circle{
+    width:44px;height:44px;border-radius:50%;
+    border:2px solid rgba(255,255,255,0.06);
+    background: linear-gradient(135deg,var(--accent), rgba(0,119,182,0.15));
+}
+.brand-text .name{font-weight:700;letter-spacing:0.4px;color:var(--text)}
+.brand-text .subtitle{font-size:12px;color:var(--muted)}
+
+/* nav */
+.nav{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    width:80%;
+}
+.nav a{
+    color:var(--muted);text-decoration:none;font-size:13px;
+    transition: color 180ms;
+    position:relative;
+    padding:6px 12px;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.nav a:hover{color:var(--text)}
+.nav a.active{
+    color:var(--accent);
+}
+.nav a.active::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:2px;
+    background:var(--accent);
+    border-radius:2px;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+
+.hero{padding:100px 20px 60px;max-width:100%;margin:0 auto;width:100%}
+.hero-content{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;width:100%}
+.hero-left{width:100%;max-width:630px;padding:0;margin:0}
+.hero-right{width:100%;max-width:400px;padding:0;margin:0;display:flex;justify-content:center}
+.greeting{margin:0;font-size:40px;font-weight:800;line-height:1.02;color:var(--text)}
+.greeting-name{margin:10px 0 0 0;font-size:60px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:normal;filter:drop-shadow(0 0 10px rgba(168,85,247,0.5))}.greeting .accent{color:var(--accent)}
+.typewriter{margin:8px 0 16px;color:var(--muted);font-weight:600;position:relative}
+#typewriter::after{content:'';display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;animation:blink 0.7s infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.lead{color:var(--muted);max-width:75ch}
+
+/* buttons */
+.hero-cta{display:flex;gap:12px;margin-top:20px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all var(--transition);cursor:pointer;border:none;background:linear-gradient(90deg, #3b82f6 0%, #3b82f6 100%);color:#ffffff}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(52,152,219,0.4)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn.ghost:hover{background:rgba(255,255,255,0.05)}
+
+/* profile card */
+.profile-card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border-radius:var(--radius);
+    padding:0;
+    box-shadow: var(--shadow);
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.profile-photo{width:250px;height:250px;border-radius:50%;object-fit:cover;border:4px solid rgba(0,119,182,0.14);max-width:100%}
+.contact-mini{width:100%}
+.mini-row{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+
+/* sections */
+.section{padding:48px 20px}
+.dark-section{background:linear-gradient(180deg, rgba(52, 73, 94, 0.3), rgba(44, 62, 80, 0.2));}
+.section-title{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:28px;font-weight:700;color:var(--text);background:#be0a0a;padding:20px 32px;border-radius:12px;display:block;width:80%;opacity:1}
+.section-title-large{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:36px;font-weight:700;color:var(--text);padding:20px 32px;border-radius:12px;display:block;width:100%;opacity:1}
+.container{max-width:1200px;margin:0 auto}
+
+/* grid */
+.grid-2{display:grid;grid-template-columns: 1fr 1fr;gap:24px;max-width:1200px;margin:0 auto;width:100%}
+
+
+/* card */
+.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px 0}
+.competencies{margin:0 auto;width:80%}
+.muted{color:var(--muted);font-size:13px}
+
+/* icons grid */
+.icons-grid{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.core-skills-section{text-align:center;margin:24px 0 32px 0}
+.core-skills-section .icons-grid{justify-content:center;margin:0}
+
+/* Technical Proficiency Overview */
+.proficiency-header{margin-bottom:32px;text-align:center}
+.proficiency-header h3{margin:0;font-size:24px;font-weight:700;color:#2dbd09 }
+.proficiency-header p{margin:8px 0 0 0;font-size:14px;color:rgba(255,255,255,0.9)}
+.proficiency-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto}
+.proficiency-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:24px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.1);transition:all var(--transition)}
+.proficiency-card:hover{background:rgba(255,255,255,0.1);transform:translateY(-4px)}
+.proficiency-icon{width:60px;height:60px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:12px}
+.proficiency-icon svg{width:32px;height:32px;color:#ffffff;stroke:#ffffff}
+.proficiency-card h4{margin:0 0 12px 0;font-size:18px;font-weight:700;color:#ffffff}
+.proficiency-card p{margin:0;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.5}
+.skill-main{width:132px;height:132px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));transition:transform var(--transition);cursor:default}
+.icon{width:44px;height:44px;fill:transparent;stroke:var(--accent);stroke-width:1.6;opacity:0.95}
+.skill-title{margin-top:8px;font-weight:600;color:var(--text)}
+
+
+/* Job Experience Card */
+.job-experience-card{display:flex;flex-direction:column;overflow:hidden;border-radius:12px;max-width:1200px;margin:0 auto;width:100%;padding:0 20px}
+.job-header{background:linear-gradient(135deg, #6986a8 0%, #6986a8 100%);padding:3px;border-radius:12px;box-shadow:var(--shadow)}
+
+/* tag cloud and rating */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:flex-start}
+.skill-tag{background:linear-gradient(180deg, rgba(0,119,182,0.03), rgba(255,255,255,0.01));padding:8px 12px;border-radius:999px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:flex-start;gap:10px;position:relative}
+.skill-tag .rating{display:flex;gap:4px;margin-left:8px}
+.skill-tag .rating i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.08);display:inline-block;transition:all 220ms}
+
+/* skills container */
+.skills-container{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-start;max-width:1200px;margin:0 auto;width:100%;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:12px}
+.skill-item{flex:0 1 calc(33.333% - 11px);min-width:200px;padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:1;transition:opacity var(--transition)}
+.skill-item:hover{opacity:1;transform:translateY(-4px)}
+.skill-item h4{margin:0 0 12px 0;font-size:14px;color:var(--text);opacity:1}
+.skill-rating{display:flex;gap:6px;justify-content:center;opacity:1}
+.other-skills-title{text-align:center;margin:24px 0 16px 0;font-size:18px;font-weight:700;color:var(--text)}
+
+/* format cert list */
+.cert-list{list-style:none;padding-left:0;margin:8px 0 0 0;color:var(--muted);font-size:14px}
+
+/* timeline */
+.timeline-section{padding:36px 20px 80px}
+.timeline{position:relative;padding:40px 0;max-width:900px;margin:0 auto}
+.center-line{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--accent), rgba(0,119,182,0.12));transform:translateX(-50%);border-radius:999px;box-shadow:0 4px 18px rgba(0,119,182,0.06)}
+.timeline-item{width:54%;position:relative;margin:28px 0;opacity:0;transform:translateY(20px);transition:all 560ms;display:flex;flex-direction:column;gap:0;background:#3a3a3a;border-radius:12px;padding:0;overflow:hidden}
+.timeline-item .content1{background:linear-gradient(135deg, #f14c2b 0%, #ec2f84 100%);padding:16px;border-radius:0;box-shadow:none;width:100%;text-align:left;color:#ffffff}
+.timeline-item .content2{background:linear-gradient(135deg, #23778b 0%, #5cb5c9 100%);padding:16px;border-radius:0;box-shadow:none;width:100%;text-align:left;color:#ffffff}
+.timeline-item .content3{background:linear-gradient(135deg, #7303c0 0%, #ec38bc 100%);padding:16px;border-radius:0;box-shadow:none;width:100%;text-align:left;color:#ffffff}
+.timeline-item .content4{background:linear-gradient(135deg, #49911f 0%, #77e942 100%);padding:16px;border-radius:0;box-shadow:none;width:100%;text-align:left;color:#ffffff}
+.timeline-item .content5{background:linear-gradient(135deg, #ffcf4d 0%, #e26b2f 100%);padding:16px;border-radius:0;box-shadow:none;width:100%;text-align:left;color:#ffffff}
+.timeline-item.left{left:-10%;margin-right:46%}
+.timeline-item.right{left:56%}
+.timeline-item.left::after{position:absolute;top:18px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(0,119,182,0.06);}
+.timeline-item.right::after{position:absolute;top:18px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(0,119,182,0.06);}
+.timeline-card{background:#37465e;backdrop-filter:none;padding:16px;border-radius:0;text-align:left;border:none;transition:all var(--transition);width:100%;margin:0;color:#ffffff}
+.timeline-card li{color:#ffffff}
+.timeline-item.left::after{right:-7px}
+.timeline-item.right::after{left:-7px}
+.timeline-item .meta{color:#ffffff;font-size:13px;margin-bottom:8px}
+.timeline-item.visible{opacity:1;transform:none}
+
+/* Year Markers */
+.year-marker-left{position:absolute;left:40%;transform:translateX(100%);background:var(--card);padding:12px 11px;border-radius:999px;font-weight:700;color:var(--accent);box-shadow:0 6px 20px rgba(2,6,23,0.6);font-size:16px;top:0}
+.year-marker-right{position:absolute;left:60%;transform:translateX(-200%);background:var(--card);padding:12px 11px;border-radius:999px;font-weight:700;color:var(--accent);box-shadow:0 6px 20px rgba(2,6,23,0.6);font-size:16px;top:0}
+
+/* Format Cert List */
+.cert-list{list-style:none;padding-left:0;margin:8px 0 0 0;color:var(--muted);font-size:14px}
+
+/* ===========================
+   ABOUT & PROFESSIONAL OVERVIEW
+   =========================== */
+.about p{color:var(--muted)}
+.contact-info{width:100%;border-top:1px dashed rgba(255,255,255,0.1);padding-top:16px}
+.contact-info h4{margin:0 0 12px 0;color:var(--text);font-size:14px;text-align:center}
+.contact{display:flex;flex-direction:column}
+.contact-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.contact-list li{display:flex;justify-content:space-between;padding:0.1px 0;border:none;color:var(--muted);font-size:13px}
+.contact-list li a{color:var(--muted);text-decoration:none;transition:color var(--transition)}
+/* Professional Overview Section */
+.professional-overview-section{padding:60px 20px;background:linear-gradient(180deg, rgba(241, 240, 240, 0.01), rgba(255,255,255,0.005))} 
+.professional-overview-container{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;align-items:flex-start}
+
+/* Professional Profile Card - Left */m:hover{transform:translateX(4px);box-shadow:0 8px 24px rgba(0,119,182,0.12);border-color:rgba(0,119,182,0.15)}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+
+.cert-badge:hover{box-shadow:none;transform:none}
+
+/* footer */
+.footer {
+    background: linear-gradient(135deg, #1a284b 0%, #1e3a8a 100%);
+    padding: 60px 20px 30px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Footer Logo */
+.footer-logo {
+    margin-bottom: 16px;
+}
+
+.footer-logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Footer Navigation */
+.footer-nav {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all var(--transition);
+    position: relative;
+}
+
+.footer-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width var(--transition);
+}
+
+.footer-nav a:hover {
+    color: var(--accent);
+}
+
+.footer-nav a:hover::after {
+    width: 100%;
+}
+
+/* Footer Social Icons */
+.footer-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    color: #0a1628;
+    text-decoration: none;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+.social-icon.facebook {
+    background: #1877F2;
+    color: white;
+}
+.social-icon.email {
+    background: #EA4335;
+    color: white;
+}
+.social-icon.linkedin {
+    background: #0A66C2;
+    color: white;
+}
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-icon:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+    color: white;
+    text-decoration: none;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+}
+.scroll-to-top:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Copyright */
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin-top: 16px;
+}
+
+.footer-copyright p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+.colorlib-link {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.colorlib-link:hover {
+    color: var(--accent);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width:980px){
+    .grid-2{grid-template-columns:1fr}
+    .hero-content{flex-direction:column}
+    .hero-right{width:100%}
+    .timeline-item{width:100%}
+    .timeline-item.left{left:0;margin-right:0}
+    .timeline-item.right{left:0}
+    .center-line{left:20px}
+    .timeline-item.left::after, .timeline-item.right::after{left:12px}
+    .year-marker{left:12%;transform:none}
+    .nav{display:flex;gap:8px;width:100%;justify-content:center;margin-top:8px;order:3}
+    .nav a{font-size:12px;padding:4px 8px}
+    .proficiency-cards{grid-template-columns:repeat(2,1fr);gap:15px}
+}
+
+/* Professional Overview Section */
+.professional-overview-section{padding:60px 20px;background:linear-gradient(180deg, rgba(241, 240, 240, 0.01), rgba(255,255,255,0.005))} 
+.professional-overview-container{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;align-items:flex-start}
+
+/* Professional Left Column with stacked cards */
+.professional-left-column{display:flex;flex-direction:column;gap:24px}
+
+/* Professional Profile Card - Left */
+.professional-profile-card{background:#37465e;padding:32px;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(109, 7, 7, 0.06);display:flex;flex-direction:column;align-items:center;text-align:center}.profile-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;margin-top:24px}
+.stat-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center}
+.stat-number{font-size:32px;font-weight:700;margin-bottom:8px;line-height:1}
+.stat-label{font-size:13px;color:var(--muted);font-weight:500}
+.profile-badge{width:80px;height:80px;background:linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:#fff;margin-bottom:20px;box-shadow:0 8px 24px rgba(124,58,237,0.3);overflow:hidden}
+.profile-badge-logo{width:80px;height:80px;object-fit:cover;border-radius:50%}
+.profile-display-name{margin:0 0 8px 0;font-size:40px;font-weight:700;color:var(--text)}
+.profile-role{margin:0 0 20px 0;font-size:14px;color:var(--muted);font-weight:600}
+.profile-meta-badges{display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.08);padding:8px 14px;border-radius:999px;font-size:13px;color:var(--text);border:1px solid rgba(255,255,255,0.1)}
+
+/* Education Card */
+.education-card{text-align:center;align-items:center}
+.education-title{margin:0 0 24px 0;font-size:26px;font-weight:700;color:var(--text);letter-spacing:2px;text-align:center}
+.education-content{display:flex;flex-direction:column;gap:16px;align-items:flex-start;text-align:center;width:100%}
+.education-degree{margin:0;font-size:16px;font-weight:700;color:var(--text);line-height:1.5;text-align:center;width:100%}
+.education-years{margin:0;font-size:14px;font-weight:600;color:#ef4444;text-align:center;width:100%}
+.education-school{margin:0;font-size:14px;color:var(--muted);line-height:1.5;text-align:center;width:100%}
+
+/* Professional Overview Content - Right */
+.professional-overview-content{display:flex;flex-direction:column;gap:24px}
+.overview-header{background:linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);padding:28px;border-radius:12px;box-shadow:var(--shadow)}
+.overview-header h2{margin:0;font-size:28px;font-weight:700;color:#ffffff;text-align: center;}
+.core-expertise{display:flex;flex-direction:column;gap:16px}
+.core-expertise h4{margin:0 0 8px 0;font-size:16px;font-weight:700;color:var(--text)}
+
+.expertise-item{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;text-align:center;padding:16px;border-radius:8px;transition:all var(--transition);cursor:pointer}
+.expertise-icon{width:40px;height:40px;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border-radius:10px;font-size:20px;flex-shrink:0}
+.expertise-icon.cloud-icon{border-left:4px solid #3b82f6}
+.expertise-icon.automation-icon{border-left:4px solid #a855f7}
+.expertise-icon.networking-icon{border-left:4px solid #10b981}
+.expertise-icon.security-icon{border-left:4px solid #f59e0b}
+.expertise-content h3{margin:0 0 4px 0;font-size:16px;font-weight:700;color:#ffffff;text-align:center}
+.expertise-content p{margin:0;font-size:15px;color:#ffffff;line-height:1.5;text-align:center}
+.expertise-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:12px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.1);transition:all var(--transition)}
+.expertise-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+.overview-cta{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));padding:24px;border-radius:12px;border:1px solid rgba(0,119,182,0.08);display:flex;flex-direction:column;align-items:center;gap:16px}
+.cta-text{margin:0;font-size:14px;font-weight:600;color:var(--text);text-align:center}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:12px 24px;font-size:14px;border-radius:8px}
+.email-btn{background:#3b82f6;color:#fff}
+.email-btn:hover{background:#2563eb;transform:translateY(-2px)}
+
+
+@media (max-width:980px){
+  .professional-overview-container{grid-template-columns:1fr;gap:24px}
+}
+
+@media (max-width:768px){
+    .skills-grid{grid-template-columns:1fr}
+}
+
+/* Skills Cards Styling (Legacy) */
+.skills-cards-wrapper{max-width:1200px;margin:40px auto 0;padding:0 20px}
+.skills-category{margin-bottom:60px}
+.category-badge1{display:flex;width:fit-content;margin:0 auto 24px auto;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg, #7303c0 0%, #ec38bc 100%);color:var(--text);font-weight:600;font-size:22px;padding:10px 24px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);-webkit-background-clip:padding-box;background-clip:padding-box}
+.category-badge2{display:flex;width:fit-content;margin:0 auto 24px auto;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f14c2b 0%, #ec2f84 100%);color:var(--text);font-weight:600;font-size:22px;padding:10px 24px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);-webkit-background-clip:padding-box;background-clip:padding-box}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin:0}
+
+.skill-card{
+    position:relative;
+    background:#37465e;backdrop-filter:none;padding:16px;border-radius:0;text-align:left;border:none;transition:all var(--transition);width:100%;margin:0;
+    border-radius:12px;
+    padding:24px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.05);
+    border-top:3px solid var(--border-color);
+    transition:all var(--transition);
+    overflow:hidden;
+}
+
+.skill-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:radial-gradient(circle at center, var(--primary-color), transparent);
+    opacity:0;
+    transition:opacity var(--transition);
+    pointer-events:none;
+}
+
+.skill-card:hover{
+    background:#1f2a3a;
+    border-color:var(--border-color);
+    box-shadow:0 0 30px rgba(var(--primary-color-rgb), 0.25), 0 8px 24px rgba(0,0,0,0.4);
+    transform:translateY(-8px);
+}
+
+.skill-card:hover::before{
+    opacity:0.15;
+}
+
+.card-icon{
+    width:60px;
+    height:60px;
+    margin:0 auto 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border-radius:12px;
+    border:1px solid var(--primary-color);
+    font-size:28px;
+    position:relative;
+    z-index:2;
+}
+
+.card-icon svg{
+    width:40px;
+    height:40px;
+    color:var(--primary-color);
+}
+
+.skill-card h4{
+    margin:0 0 8px 0;
+    font-size:18px;
+    font-weight:700;
+    color:var(--text);
+    position:relative;
+    z-index:2;
+}
+
+.card-description{
+    margin:0 0 16px 0;
+    font-size:13px;
+    color:rgba(255,255,255,0.8);
+    line-height:1.5;
+    position:relative;
+    z-index:2;
+}
+
+.card-rating{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    position:relative;
+    z-index:2;
+}
+
+.star{
+    font-size:15px;
+    display:inline-block;
+}
+
+.star.empty{
+    opacity:0.3;
+}
+
+.skill-level{
+    margin-left:8px;
+    font-size:12px;
+    font-weight:600;
+    color:var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .skills-grid{grid-template-columns:1fr}
+    .header{padding:12px 15px}
+    .header-inner{flex-wrap:wrap}
+    .brand-logo{width:36px;height:36px}
+    .nav{order:3;width:100%;margin-top:8px;justify-content:center;gap:6px;font-size:1.05em}
+    .nav a{font-size:11.55px;padding:3px 6px}
+    .hero{padding:90px 15px 40px}
+    .greeting{font-size:32px}
+    .greeting-name{font-size:40px}
+    .lead{font-size:14px}
+    .profile-photo{width:200px;height:200px}
+    .section{padding:30px 15px}
+    .section-title-large{font-size:28px;padding:15px 20px}
+    .proficiency-cards{grid-template-columns:1fr;gap:15px}
+    .proficiency-card{padding:20px}
+    .proficiency-icon{width:50px;height:50px}
+    .proficiency-icon svg{width:28px;height:28px}
+    .skills-cards-wrapper{padding:0 10px}
+    .skill-card{padding:16px}
+    .card-icon{width:50px;height:50px}
+    .card-icon svg{width:32px;height:32px}
+    .skill-card h4{font-size:16px}
+    .card-description{font-size:12px}
+    .timeline-section{padding:30px 15px 50px}
+    .timeline{padding:20px 0}
+    .timeline-item{margin:20px 0}
+    .year-marker-left,
+    .year-marker-right{font-size:14px;position:relative;left:auto;transform:none;margin:-30px 0 10px 0;display:block;top:auto}
+    .professional-overview-container{grid-template-columns:1fr;gap:20px}
+    .professional-overview-section{padding:40px 15px}
+    .professional-profile-card{padding:24px 16px}
+    .profile-badge{width:70px;height:70px}
+    .profile-badge-logo{width:70px;height:70px}
+    .profile-display-name{font-size:28px}
+    .profile-role{font-size:13px}
+    .profile-stats-grid{grid-template-columns:repeat(2,1fr);gap:15px}
+    .stat-box{padding:15px}
+    .stat-number{font-size:24px}
+    .education-title{font-size:20px;margin-bottom:16px}
+    .education-degree{font-size:14px}
+    .education-school{font-size:12px}
+    .overview-header{padding:20px}
+    .overview-header h2{font-size:22px}
+    .expertise-card{padding:12px}
+    .expertise-content h3{font-size:14px}
+    .expertise-content p{font-size:13px}
+    .core-skills-section{margin:15px 0 20px}
+    .icons-grid{gap:10px}
+    .skill-main{width:100px;height:100px}
+    .icon{width:36px;height:36px}
+    .skill-title{font-size:12px;margin-top:6px}
+    .contact-info h1{font-size:18px}
+    .contact-list li{font-size:12px}
+    .footer{padding:30px 15px}
+    .hero-cta{flex-wrap:wrap;gap:10px}
+}
+
+@media (max-width:480px){
+    .header{padding:12px 10px}
+    .brand-logo{width:32px;height:32px}
+    .nav{gap:4px;font-size:9px}
+    .nav a{font-size:9px;padding:2px 4px}
+    .greeting{font-size:28px}
+    .greeting-name{font-size:34px}
+    .lead{font-size:13px}
+    .profile-photo{width:160px;height:160px}
+    .section{padding:20px 12px}
+    .section-title-large{font-size:22px;padding:12px 15px}
+    .proficiency-card{padding:16px}
+    .proficiency-icon{width:45px;height:45px}
+    .proficiency-card h4{font-size:15px}
+    .proficiency-card p{font-size:12px}
+    .skill-card{padding:12px}
+    .card-icon{width:45px;height:45px}
+    .card-icon svg{width:28px;height:28px}
+    .skill-card h4{font-size:14px}
+    .timeline-section{padding:20px 12px 40px}
+    .professional-profile-card{padding:16px 12px}
+    .profile-badge{width:60px;height:60px;font-size:24px}
+    .profile-badge-logo{width:60px;height:60px}
+    .profile-display-name{font-size:24px}
+    .stat-box{padding:12px}
+    .stat-number{font-size:20px}
+    .stat-label{font-size:11px}
+    .education-title{font-size:18px}
+    .education-degree{font-size:13px}
+    .contact-info h1{font-size:16px}
+    .btn{padding:9px 16px;font-size:12px}
+    .hero-cta{gap:8px}
+    .cta-btn{padding:10px 16px;font-size:12px}
+    .icon{width:32px;height:32px}
+    .skill-main{width:85px;height:85px}
+    .skill-title{font-size:11px}
+}

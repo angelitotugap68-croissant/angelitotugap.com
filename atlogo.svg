@@ -1,0 +1,44 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="atGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main circle background -->
+  <circle cx="50" cy="50" r="48" fill="url(#atGradient)" filter="url(#glow)"/>
+  
+  <!-- Geometric accent lines (high-tech) -->
+  <line x1="20" y1="50" x2="35" y2="50" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+  <line x1="65" y1="50" x2="80" y2="50" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+  <line x1="50" y1="20" x2="50" y2="35" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+  <line x1="50" y1="65" x2="50" y2="80" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Corner tech details -->
+  <rect x="18" y="18" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <rect x="74" y="18" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <rect x="18" y="74" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <rect x="74" y="74" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- "A" letter -->
+  <text x="32" y="65" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">A</text>
+  
+  <!-- "T" letter -->
+  <text x="68" y="65" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">T</text>
+  
+  <!-- Top tech line accent -->
+  <line x1="25" y1="30" x2="75" y2="30" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Bottom tech line accent -->
+  <line x1="25" y1="70" x2="75" y2="70" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+</svg>
