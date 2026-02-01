@@ -1,5 +1,5 @@
 // Typewriter — cycles through roles
-const roles = ["Web Developer.", "System Administrator.", "Customer Service Representative."];
+const roles = ["Web Developer.", "System Administrator.", "IT Support", "Customer Service Representative."];
 const typeEl = document.getElementById("typewriter");
 let ri = 0, ci = 0, deleting = false;
 
@@ -21,7 +21,7 @@ function tick() {
       ri = (ri + 1) % roles.length;
     }
   }
-  setTimeout(tick, deleting ? 20 : 70);
+  setTimeout(tick, deleting ? 30 : 60);
 }
 if (typeEl) tick();
 
