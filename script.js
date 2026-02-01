@@ -1,5 +1,5 @@
 // Typewriter — cycles through roles
-const roles = ["Web Developer.", "Systems Administrator.", "IT Support.", "Customer Service Representative."];
+const roles = ["Web Developer.", "Systems Administrator.", "Technical Support.", "Customer Service Representative."];
 const typeEl = document.getElementById("typewriter");
 let ri = 0, ci = 0, deleting = false;
 
