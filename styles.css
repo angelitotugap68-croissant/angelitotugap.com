@@ -641,6 +641,15 @@ body{
     .timeline-item{margin:20px 0}
     .year-marker-left,
     .year-marker-right{font-size:14px;position:relative;left:auto;transform:none;margin:-30px 0 10px 0;display:block;top:auto}
+    /* Tablet: Reset all year markers to flow naturally */
+    .year-marker-2016,
+    .year-marker-2018,
+    .year-marker-2021,
+    .year-marker-2023,
+    .year-marker-2025 {
+        top: auto !important;
+        position: relative;
+    }
     .professional-overview-container{grid-template-columns:1fr;gap:20px}
     .professional-overview-section{padding:40px 15px}
     .professional-profile-card{padding:24px 16px}
