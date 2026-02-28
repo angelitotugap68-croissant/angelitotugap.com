@@ -127,4 +127,3 @@ document.addEventListener('click', function() {
     card.classList.remove('active');
   });
 });
-
