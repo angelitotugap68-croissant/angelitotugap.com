@@ -129,9 +129,9 @@ body{
    =========================== */
 
 .hero{padding:100px 20px 60px;max-width:100%;margin:0 auto;width:100%}
-.hero-content{display:flex;gap:40px;align-items:center;justify-content:space-between;flex-wrap:wrap-reverse;width:100%}
-.hero-left{width:100%;max-width:630px;padding:0;margin:0;order:1}
-.hero-right{width:100%;max-width:400px;padding:0;margin:0;display:flex;justify-content:center;order:2}
+.hero-content{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;width:100%}
+.hero-left{width:100%;max-width:630px;padding:0;margin:0}
+.hero-right{width:100%;max-width:400px;padding:0;margin:0;display:flex;justify-content:center}
 .greeting{margin:0;font-size:40px;font-weight:800;line-height:1.02;color:var(--text)}
 .greeting-name{margin:10px 0 0 0;font-size:60px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:normal;filter:drop-shadow(0 0 10px rgba(168,85,247,0.5))}.greeting .accent{color:var(--accent)}
 .typewriter{margin:8px 0 16px;color:var(--muted);font-weight:600;position:relative}
@@ -716,5 +716,3 @@ body{
     .skill-main{width:85px;height:85px}
     .skill-title{font-size:11px}
 }
-
-
