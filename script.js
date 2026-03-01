@@ -160,3 +160,78 @@ document.addEventListener('click', function() {
     card.classList.remove('active');
   });
 });
+
+// ==============================
+// MODAL SYSTEM - Glassmorphism HUD
+// ==============================
+
+// Function to open modal
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('show');
+    modal.style.display = 'flex';
+    // Add slight delay for animation
+    setTimeout(() => {
+      modal.style.opacity = '1';
+    }, 10);
+  }
+}
+
+// Function to close modal
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('show');
+    modal.style.opacity = '0';
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
+  }
+}
+
+// Close modal when clicking outside content
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('modal')) {
+    const modalId = event.target.id;
+    closeModal(modalId);
+  }
+});
+
+// Proficiency card click handlers
+document.querySelectorAll('.proficiency-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const modalId = this.getAttribute('data-modal-id');
+    if (modalId) {
+      openModal(modalId);
+    }
+  });
+});
+
+// Keyboard escape to close modal
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.modal.show').forEach(modal => {
+      closeModal(modal.id);
+    });
+  }
+});
+
+// Add cursor pointer style to proficiency cards
+document.querySelectorAll('.proficiency-card').forEach(card => {
+  card.style.cursor = 'pointer';
+});
+
+// ==============================
+// SCROLL PROGRESS BAR
+// ==============================
+
+const scrollProgress = document.querySelector('.scroll-progress');
+if (scrollProgress) {
+  window.addEventListener('scroll', function() {
+    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    scrollProgress.style.width = scrolled + '%';
+  });
+}
+
