@@ -716,3 +716,42 @@ body{
     .skill-main{width:85px;height:85px}
     .skill-title{font-size:11px}
 }
+
+/* Container for the profile pic and the ring */
+.profile-pic-container {
+    position: relative;
+    width: 250px; /* Adjust based on your preferred picture size */
+    height: 250px; /* Must be equal to width for a perfect circle */
+    border-radius: 50%; /* Ensures the container is a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Spacing between the picture and the ring */
+}
+
+/* Pseudo-element for the moving gradient ring */
+.profile-pic-container::before {
+    content: '';
+    position: absolute;
+    inset: -5px; /* Size of the ring extension */
+    border-radius: 50%; /* Circle shape for the ring */
+    
+    /* Radial gradient for the moving colored ring */
+    background: radial-gradient(circle at center, transparent 40%, rgba(200, 255, 200, 0.8) 50%, #4ae3b5 60%, transparent 70%);
+    
+    /* Animation definition: spin, 4 seconds, linear, infinite */
+    animation: ring-spin 4s linear infinite; 
+    
+    filter: blur(8px); /* Adds a soft glow effect to the ring */
+    z-index: -1; /* Place the ring behind the profile picture */
+}
+
+/* CSS Animation for the spinning effect */
+@keyframes ring-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
