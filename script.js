@@ -1,5 +1,5 @@
-// Typewriter — cycles through roles
-const roles = ["DevOps.", "Systems Administrator.", "Technical Support.", "Risk Analyst."];
+// Enhanced Typewriter — cycles through roles
+const roles = ["Infrastructure Guardian.", "DevOps Architect.", "Systems Administrator.", "Risk Analyst.", "Enterprise Security Specialist."];
 const typeEl = document.getElementById("typewriter");
 let ri = 0, ci = 0, deleting = false;
 
@@ -10,7 +10,7 @@ function tick() {
     typeEl.textContent = role.slice(0, ci) + "";
     if (ci === role.length) {
       deleting = true;
-      setTimeout(tick, 900);
+      setTimeout(tick, 1200);
       return;
     }
   } else {
@@ -21,7 +21,7 @@ function tick() {
       ri = (ri + 1) % roles.length;
     }
   }
-  setTimeout(tick, deleting ? 30 : 60);
+  setTimeout(tick, deleting ? 25 : 45);
 }
 if (typeEl) tick();
 
@@ -94,6 +94,39 @@ const io = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.12});
 items.forEach(i=>io.observe(i));
+
+// Scroll Reveal Animations
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Magnetic Cursor Enhancement
+document.addEventListener('mousemove', (e) => {
+  const buttons = document.querySelectorAll('.btn, .honeycomb-item');
+  buttons.forEach(btn => {
+    const rect = btn.getBoundingClientRect();
+    const btnCenterX = rect.left + rect.width / 2;
+    const btnCenterY = rect.top + rect.height / 2;
+    const distance = Math.sqrt(Math.pow(e.clientX - btnCenterX, 2) + Math.pow(e.clientY - btnCenterY, 2));
+    
+    if (distance < 100) {
+      const angle = Math.atan2(e.clientY - btnCenterY, e.clientX - btnCenterX);
+      const pullX = Math.cos(angle) * (100 - distance) * 0.15;
+      const pullY = Math.sin(angle) * (100 - distance) * 0.15;
+      btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
+    } else {
+      btn.style.transform = '';
+    }
+  });
+});
 
 // Render rating dots for skill tags
 document.querySelectorAll('.skill-tag').forEach(tag=>{
