@@ -755,3 +755,40 @@ body{
         transform: rotate(360deg);
     }
 }
+
+/* This part keeps your photo from getting too big */
+.profile-ring-container {
+    position: relative;
+    width: 200px;  /* Adjust this to the size you want on your screen */
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* This part adds the neon spinning ring */
+.profile-ring-container::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    background: conic-gradient(transparent, transparent, transparent, #4ae3b5);
+    animation: rotate-ring 4s linear infinite;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+    border: 3px solid #1a1a1a; /* Creates a gap between pic and ring */
+}
+
+@keyframes rotate-ring {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
