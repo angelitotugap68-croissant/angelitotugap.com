@@ -5,7 +5,7 @@
 :root{
     --bg:#1a1f2e;
     --card:#0f1419;
-    --muted:#a8b8d8;
+    --muted:hsl(220, 38%, 75%);
     --accent:#00ff88;
     --accent-alt:#00d9ff;
     --accent-purple:#d946ef;
@@ -45,14 +45,14 @@ body::before{
     width:100%;
     height:100%;
     font-family:'Courier New', monospace;
-    font-size:12px;
-    color:rgba(0,255,136,0.03);
+    font-size:14px;
+    color:rgba(0, 255, 136, 0.03);
     white-space:pre-wrap;
     overflow:hidden;
     z-index:0;
     pointer-events:none;
-    line-height:1.8;
-    animation:binary-fall 20s linear infinite;
+    line-height:2.5;
+    animation:binary-fall 10s linear infinite;
 }
 
 /* Scroll Progress Bar */
@@ -304,7 +304,7 @@ body::before{
     font-size:32px;
     font-weight:300;
     line-height:1.1;
-    color:var(--muted);
+    color:white;
     letter-spacing:2px;
     font-family:'Courier New', monospace;
     animation:float-in 0.8s ease-out;
@@ -580,7 +580,7 @@ body::before{
 }
 
 .modal-section p, .modal-section ul{
-    color:var(--muted);
+    color:white;
     font-size:14px;
     line-height:1.6;
     margin:0 0 8px 0;
@@ -922,7 +922,7 @@ body::before{
     border-color:rgba(0,255,136,0.4);
 }
 .timeline-item .content1{
-    background:linear-gradient(135deg, rgba(241,76,43,0.15) 0%, rgba(236,47,132,0.1) 100%);
+    background:linear-gradient(135deg, rgba(228, 57, 23, 0.15) 0%, rgba(236,47,132,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -932,7 +932,7 @@ body::before{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content2{
-    background:linear-gradient(135deg, rgba(35,119,139,0.15) 0%, rgba(92,181,201,0.1) 100%);
+    background:linear-gradient(135deg, rgba(7, 197, 245, 0.15) 0%, rgba(92,181,201,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -942,7 +942,7 @@ body::before{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content3{
-    background:linear-gradient(135deg, rgba(115,3,192,0.15) 0%, rgba(236,56,188,0.1) 100%);
+    background:linear-gradient(135deg, rgba(130, 4, 214, 0.15) 0%, rgba(236,56,188,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -952,7 +952,7 @@ body::before{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content4{
-    background:linear-gradient(135deg, rgba(73,145,31,0.15) 0%, rgba(119,233,66,0.1) 100%);
+    background:linear-gradient(135deg, rgba(77, 182, 17, 0.15) 0%, rgba(119,233,66,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -962,7 +962,7 @@ body::before{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content5{
-    background:linear-gradient(135deg, rgba(255,207,77,0.15) 0%, rgba(226,107,47,0.1) 100%);
+    background:linear-gradient(135deg, rgba(248, 184, 6, 0.15) 0%, rgba(226,107,47,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
