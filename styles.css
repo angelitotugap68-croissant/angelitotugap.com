@@ -33,6 +33,39 @@ body{
     height:100%;
     overflow-x:hidden;
     cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3" fill="%2300ff88"/><circle cx="16" cy="16" r="8" fill="none" stroke="%2300ff88" stroke-width="1" opacity="0.6"/></svg>') 16 16, auto;
+    position:relative;
+}
+
+/* Binary Background Overlay */
+body::before{
+    content:'01010101 10101010 11001100 00110011 01010101 10101010 11001100 00110011 01010101 10101010 11001100 00110011 01010101 10101010 11001100 00110011 01010101 10101010 11001100 00110011';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    font-family:'Courier New', monospace;
+    font-size:12px;
+    color:rgba(0,255,136,0.03);
+    white-space:pre-wrap;
+    overflow:hidden;
+    z-index:0;
+    pointer-events:none;
+    line-height:1.8;
+    animation:binary-fall 20s linear infinite;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    background:linear-gradient(90deg, #00ff88 0%, #00d9ff 50%, #d946ef 100%);
+    box-shadow:0 0 15px rgba(0,255,136,0.6);
+    z-index:100;
+    width:0%;
+    transition:width 0.1s ease-out;
 }
 
 /* ===========================
@@ -48,6 +81,11 @@ body{
 @keyframes slide-in-left{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
 @keyframes slide-in-right{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
 @keyframes terminal-glow{0%,100%{text-shadow:0 0 5px rgba(0,255,136,0.3),0 0 10px rgba(0,255,136,0.1)}50%{text-shadow:0 0 10px rgba(0,255,136,0.8),0 0 20px rgba(0,255,136,0.4)}}
+@keyframes binary-fall{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+@keyframes matrix-rain{0%{text-shadow:0 0 10px rgba(0,255,136,0.3)}50%{text-shadow:0 0 20px rgba(0,255,136,0.6)}100%{text-shadow:0 0 10px rgba(0,255,136,0.3)}}
+@keyframes revolve{0%{transform:rotateX(0deg) rotateY(0deg)}100%{transform:rotateX(360deg) rotateY(360deg)}}
+@keyframes modal-glitch{0%{opacity:0;transform:translate(0)}5%{transform:translate(2px, -2px) scale(0.98)}10%{transform:translate(-2px, 2px) scale(1.02)}15%{opacity:1;transform:translate(0) scale(1)}}
+@keyframes data-pulse{0%, 100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
 
 *{box-sizing:border-box}
 
@@ -393,6 +431,188 @@ body{
 .btn.ghost:hover{
     box-shadow:0 0 20px rgba(0,217,255,0.5);
     background:rgba(0,217,255,0.1);
+}
+
+/* ===========================
+   DATA TOOLTIPS & GLOSSARY
+   =========================== */
+
+.data-tooltip{
+    position:relative;
+    display:inline-block;
+    cursor:help;
+    border-bottom:1px dashed var(--accent);
+    transition:all var(--transition);
+}
+
+.data-tooltip:hover{
+    filter:drop-shadow(0 0 8px rgba(0,255,136,0.5));
+}
+
+.data-tooltip .tooltip-content{
+    visibility:hidden;
+    position:absolute;
+    z-index:50;
+    bottom:125%;
+    left:50%;
+    transform:translateX(-50%);
+    background:linear-gradient(135deg, rgba(13,17,23,0.95) 0%, rgba(26,31,46,0.95) 100%);
+    border:1px solid rgba(0,255,136,0.4);
+    border-radius:8px;
+    padding:12px 16px;
+    font-size:12px;
+    color:var(--accent);
+    white-space:nowrap;
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 20px rgba(0,255,136,0.3);
+    animation:data-pulse 1s ease-in-out infinite;
+}
+
+.data-tooltip:hover .tooltip-content{
+    visibility:visible;
+}
+
+.data-tooltip .tooltip-content::after{
+    content:'';
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-5px;
+    border-width:5px;
+    border-style:solid;
+    border-color:rgba(0,255,136,0.4) transparent transparent transparent;
+}
+
+/* ===========================
+   MODAL & GLASSMORPHISM HUD
+   =========================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:200;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(5px);
+    animation:fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.modal.show{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    background:linear-gradient(135deg, rgba(13,17,23,0.95) 0%, rgba(26,31,46,0.95) 100%);
+    border:2px solid rgba(0,255,136,0.5);
+    border-radius:12px;
+    padding:40px;
+    max-width:600px;
+    max-height:80vh;
+    overflow-y:auto;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    box-shadow:0 0 40px rgba(0,255,136,0.4), inset 0 0 20px rgba(0,255,136,0.1);
+    animation:modal-glitch 0.6s ease-out;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+    padding-bottom:16px;
+    border-bottom:2px solid rgba(0,255,136,0.2);
+}
+
+.modal-header h2{
+    margin:0;
+    color:var(--accent);
+    font-size:24px;
+    letter-spacing:2px;
+    font-family:'Courier New', monospace;
+}
+
+.modal-close{
+    background:linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,217,255,0.05) 100%);
+    border:1px solid rgba(0,255,136,0.3);
+    color:var(--accent);
+    font-size:28px;
+    cursor:pointer;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all var(--transition);
+}
+
+.modal-close:hover{
+    background:rgba(0,255,136,0.2);
+    box-shadow:0 0 15px rgba(0,255,136,0.5);
+    transform:rotate(90deg);
+}
+
+.modal-body{
+    color:var(--text);
+}
+
+.modal-section{
+    margin-bottom:24px;
+}
+
+.modal-section h3{
+    color:var(--accent-alt);
+    font-size:16px;
+    letter-spacing:1px;
+    margin-bottom:12px;
+    font-family:'Courier New', monospace;
+}
+
+.modal-section p, .modal-section ul{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+    margin:0 0 8px 0;
+}
+
+.modal-section ul{
+    padding-left:20px;
+}
+
+.modal-section li{
+    margin-bottom:8px;
+}
+
+.close-system{
+    display:inline-block;
+    margin-top:24px;
+    padding:12px 24px;
+    background:linear-gradient(135deg, rgba(217,70,239,0.2) 0%, rgba(0,255,136,0.1) 100%);
+    border:1px solid rgba(0,255,136,0.3);
+    color:var(--accent);
+    text-decoration:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:'Courier New', monospace;
+    transition:all var(--transition);
+    font-weight:700;
+}
+
+.close-system:hover{
+    background:rgba(0,255,136,0.15);
+    box-shadow:0 0 15px rgba(0,255,136,0.4);
+    transform:translateY(-2px);
 }
 
 /* profile card */
