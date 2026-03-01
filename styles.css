@@ -822,10 +822,25 @@ body{
 
 /* footer */
 .footer {
-    background: linear-gradient(135deg, #1a284b 0%, #1e3a8a 100%);
+    background:linear-gradient(135deg, rgba(13,17,23,0.95) 0%, rgba(26,31,46,0.95) 50%, rgba(0,255,136,0.03) 100%);
     padding: 60px 20px 30px;
     margin-top: 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top:2px solid rgba(0,255,136,0.3);
+    position:relative;
+    overflow:hidden;
+}
+
+.footer::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:repeating-linear-gradient(0deg, rgba(0,255,136,0.02) 0px, rgba(0,255,136,0.02) 1px, transparent 1px, transparent 2px);
+    animation:scan-lines 4s linear infinite;
+    pointer-events:none;
+    z-index:1;
 }
 
 .footer-container {
@@ -836,11 +851,14 @@ body{
     align-items: center;
     gap: 20px;
     text-align: center;
+    position:relative;
+    z-index:2;
 }
 
 /* Footer Logo */
 .footer-logo {
     margin-bottom: 16px;
+    animation:float-in 0.8s ease-out;
 }
 
 .footer-logo-img {
@@ -928,6 +946,10 @@ body{
     width: 24px;
     height: 24px;
     fill: currentColor;
+    transition:all var(--transition);
+    z-index:1;
+    position:relative;
+    filter:drop-shadow(0 0 5px rgba(0,255,136,0.2));
 }
 
 .social-icon:hover {
@@ -959,26 +981,46 @@ body{
 
 /* Footer Copyright */
 .footer-copyright {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--muted);
     font-size: 13px;
     margin-top: 16px;
+    animation:slide-in-right 1s ease-out 0.2s both;
+    padding-top:20px;
+    border-top:1px solid rgba(0,255,136,0.15);
 }
 
 .footer-copyright p {
     margin: 0;
     line-height: 1.6;
+    letter-spacing:0.5px;
 }
 
-
 .colorlib-link {
-    color: #3b82f6;
+    color: var(--accent);
     text-decoration: none;
-    transition: color var(--transition);
+    transition: all var(--transition);
+    position:relative;
+}
+
+.colorlib-link::after{
+    content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    width:0;
+    height:2px;
+    background:var(--accent);
+    transition:width 0.3s ease-out;
 }
 
 .colorlib-link:hover {
-    color: var(--accent);
+    filter:drop-shadow(0 0 8px rgba(0,255,136,0.5));
 }
+
+.colorlib-link:hover::after{
+    width:100%;
+}
+
 
 /* ===========================
    RESPONSIVE
