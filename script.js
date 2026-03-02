@@ -1,5 +1,5 @@
 // Enhanced Typewriter — cycles through roles
-const roles = ["Infrastructure Guardian.", "DevOps Architect.", "Systems Administrator.", "Risk Analyst.", "Enterprise Security Specialist."];
+const roles = ["Infrastructure Guardian", "DevOps Architect", "Systems Administrator", "Risk Analyst", "Enterprise Security Specialist"];
 const typeEl = document.getElementById("typewriter");
 let ri = 0, ci = 0, deleting = false;
 
