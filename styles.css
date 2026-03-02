@@ -1605,6 +1605,6 @@ body::before{
     .hero-cta{gap:8px}
     .cta-btn{padding:10px 16px;font-size:12px}
     .icon{width:32px;height:32px}
-    .skill-main{width:85px;height:85px}
+    .skill-main{width:100px;height:100px}
     .skill-title{font-size:11px}
 }
