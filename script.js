@@ -25,6 +25,15 @@ function tick() {
 }
 if (typeEl) tick();
 
+// Logo click to scroll to home
+const brandLogo = document.querySelector('.brand-logo');
+if (brandLogo) {
+  brandLogo.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  brandLogo.style.cursor = 'pointer';
+}
+
 // Sticky header: add glass when scrolled
 const header = document.getElementById('mainHeader');
 function onScroll(){
