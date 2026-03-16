@@ -139,25 +139,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Magnetic Cursor Enhancement
-document.addEventListener('mousemove', (e) => {
-  const buttons = document.querySelectorAll('.btn, .honeycomb-item');
-  buttons.forEach(btn => {
-    const rect = btn.getBoundingClientRect();
-    const btnCenterX = rect.left + rect.width / 2;
-    const btnCenterY = rect.top + rect.height / 2;
-    const distance = Math.sqrt(Math.pow(e.clientX - btnCenterX, 2) + Math.pow(e.clientY - btnCenterY, 2));
-    
-    if (distance < 100) {
-      const angle = Math.atan2(e.clientY - btnCenterY, e.clientX - btnCenterX);
-      const pullX = Math.cos(angle) * (100 - distance) * 0.15;
-      const pullY = Math.sin(angle) * (100 - distance) * 0.15;
-      btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
-    } else {
-      btn.style.transform = '';
-    }
-  });
-});
 
 // Render rating dots for skill tags
 document.querySelectorAll('.skill-tag').forEach(tag=>{

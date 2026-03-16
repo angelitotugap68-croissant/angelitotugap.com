@@ -5,7 +5,7 @@
 :root{
     --bg:#F8FAFC;
     --card:#FFFFFF;
-    --muted:#64748B;
+    --muted:#0554c4;
     --accent:#2563EB;
     --accent-alt:#0EA5E9;
     --accent-purple:#22C55E;
@@ -659,7 +659,7 @@ footer{
 }
 
 /* ===========================
-   MONITOR STATS SECTION
+   MONITOR STATS dark-section
    =========================== */
 
 .monitor-section{
@@ -793,7 +793,7 @@ footer{
 
 /* sections */
 .section{padding:48px 20px}
-.dark-section{background:linear-gradient(180deg, rgba(52, 73, 94, 0.3), rgba(44, 62, 80, 0.2));}
+.dark-section{background:#FFFFFF;}
 .section-title{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:28px;font-weight:700;color:var(--text);background:#be0a0a;padding:20px 32px;border-radius:12px;display:block;width:80%;opacity:1}
 .section-title-large{text-align:center;margin-bottom:32px;margin-left:auto;margin-right:auto;font-size:36px;font-weight:700;color:var(--text);padding:20px 32px;border-radius:12px;display:block;width:100%;opacity:1}
 .container{max-width:1200px;margin:0 auto}
@@ -1055,10 +1055,6 @@ footer{
 .timeline-item.right::after{left:-7px}
 .timeline-item .meta{color:var(--accent-alt);font-size:12px;margin-bottom:8px;font-family:'Courier New', monospace;letter-spacing:0.5px}
 .timeline-item.visible{opacity:1;transform:none}
-
-/* Year Markers */
-.year-marker-left{position:absolute;left:40%;transform:translateX(100%);background:var(--card);padding:12px 11px;border-radius:999px;font-weight:700;color:var(--accent);box-shadow:0 6px 20px rgba(2,6,23,0.6);font-size:16px;top:0}
-.year-marker-right{position:absolute;left:60%;transform:translateX(-200%);background:var(--card);padding:12px 11px;border-radius:999px;font-weight:700;color:var(--accent);box-shadow:0 6px 20px rgba(2,6,23,0.6);font-size:16px;top:0}
 
 /* Format Cert List */
 .cert-list{list-style:none;padding-left:0;margin:8px 0 0 0;color:var(--muted);font-size:14px}
@@ -1344,9 +1340,6 @@ footer{
     .timeline-item.right{left:0}
     .center-line{left:20px}
     .timeline-item.left::after, .timeline-item.right::after{left:12px}
-    .year-marker{left:12%;transform:none}
-    .nav{display:flex;gap:8px;width:100%;justify-content:center;margin-top:8px;order:3}
-    .nav a{font-size:12px;padding:4px 8px}
     .proficiency-cards{grid-template-columns:repeat(2,1fr);gap:15px}
 }
 
@@ -1371,11 +1364,11 @@ footer{
 
 /* Education Card */
 .education-card{text-align:center;align-items:center}
-.education-title{margin:0 0 24px 0;font-size:26px;font-weight:700;color:var(--text);letter-spacing:2px;text-align:center}
+.education-title{margin:0 0 24px 0;font-size:26px;font-weight:700;color:#FFFFFF;letter-spacing:2px;text-align:center}
 .education-content{display:flex;flex-direction:column;gap:16px;align-items:flex-start;text-align:center;width:100%}
-.education-degree{margin:0;font-size:16px;font-weight:700;color:var(--text);line-height:1.5;text-align:center;width:100%}
+.education-degree{margin:0;font-size:16px;font-weight:700;color:#FFFFFF;line-height:1.5;text-align:center;width:100%}
 .education-years{margin:0;font-size:14px;font-weight:600;color:#ef4444;text-align:center;width:100%}
-.education-school{margin:0;font-size:14px;color:var(--muted);line-height:1.5;text-align:center;width:100%}
+.education-school{margin:0;font-size:14px;color:#FFFFFF;line-height:1.5;text-align:center;width:100%}
 
 /* Professional Overview Content - Right */
 .professional-overview-content{display:flex;flex-direction:column;gap:24px}
@@ -1571,8 +1564,6 @@ footer{
     .header{padding:12px 15px}
     .header-inner{flex-wrap:wrap}
     .brand-logo{width:42px;height:42px}
-    .nav{order:3;width:100%;margin-top:8px;justify-content:center;gap:6px;font-size:1.05em}
-    .nav a{font-size:11.55px;padding:3px 6px}
     .hero{padding:90px 15px 40px}
     .greeting{font-size:32px}
     .greeting-name{font-size:40px}
@@ -1593,17 +1584,6 @@ footer{
     .timeline-section{padding:30px 15px 50px}
     .timeline{padding:20px 0}
     .timeline-item{margin:20px 0}
-    .year-marker-left,
-    .year-marker-right{font-size:14px;position:relative;left:auto;transform:none;margin:-30px 0 10px 0;display:block;top:auto}
-    /* Tablet: Reset all year markers to flow naturally */
-    .year-marker-2016,
-    .year-marker-2018,
-    .year-marker-2021,
-    .year-marker-2023,
-    .year-marker-2025 {
-        top: auto !important;
-        position: relative;
-    }
     .projects-container{grid-template-columns:1fr}
     .project-card{padding:20px}
     .project-title{font-size:18px}
@@ -1640,8 +1620,6 @@ footer{
 @media (max-width:480px){
     .header{padding:12px 10px}
     .brand-logo{width:32px;height:32px}
-    .nav{gap:4px;font-size:9px}
-    .nav a{font-size:9px;padding:2px 4px}
     .greeting{font-size:28px}
     .greeting-name{font-size:34px}
     .lead{font-size:13px}
