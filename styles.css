@@ -831,6 +831,7 @@ footer{
     border:1px solid rgba(56,189,248,0.25);
     transition:all var(--transition);
     box-shadow:0 8px 32px rgba(56,189,248,0.1);
+    cursor:pointer;
 }
 .proficiency-card:hover{
     background:linear-gradient(135deg, rgba(56,189,248,0.15) 0%, rgba(56,189,248,0.08) 100%);
