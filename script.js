@@ -7,7 +7,7 @@ function tick() {
   const role = roles[ri];
   if (!deleting) {
     ci++;
-    typeEl.textContent = role.slice(0, ci) + "";
+    typeEl.textContent = role.slice(0, ci);
     if (ci === role.length) {
       deleting = true;
       setTimeout(tick, 1200);
@@ -15,7 +15,7 @@ function tick() {
     }
   } else {
     ci--;
-    typeEl.textContent = role.slice(0, ci) + "";
+    typeEl.textContent = role.slice(0, ci);
     if (ci === 0) {
       deleting = false;
       ri = (ri + 1) % roles.length;
@@ -37,6 +37,7 @@ if (brandLogo) {
 // Sticky header: add glass when scrolled
 const header = document.getElementById('mainHeader');
 function onScroll(){
+  if (!header) return;
   if (window.scrollY > 32) {
     header.classList.add('glass');
     header.classList.remove('transparent');
@@ -45,15 +46,24 @@ function onScroll(){
     header.classList.add('transparent');
   }
 }
-document.addEventListener('scroll', onScroll);
-onScroll(); // initial
+if (header) {
+  document.addEventListener('scroll', onScroll);
+  onScroll(); // initial
+}
 
 // Burger Menu Toggle
 const burgerMenu = document.getElementById('burgerMenu');
 const navMobile = document.getElementById('navMobile');
 const navMobileLinks = navMobile ? navMobile.querySelectorAll('a') : [];
 
-if (burgerMenu) {
+function closeMobileMenu() {
+  if (burgerMenu && navMobile) {
+    burgerMenu.classList.remove('active');
+    navMobile.classList.remove('active');
+  }
+}
+
+if (burgerMenu && navMobile) {
   burgerMenu.addEventListener('click', function(e) {
     e.stopPropagation();
     burgerMenu.classList.toggle('active');
@@ -64,18 +74,14 @@ if (burgerMenu) {
 // Close mobile menu on link click
 navMobileLinks.forEach(link => {
   link.addEventListener('click', function() {
-    burgerMenu.classList.remove('active');
-    navMobile.classList.remove('active');
+    closeMobileMenu();
   });
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.header-inner') && !e.target.closest('.nav-mobile')) {
-    if (navMobile && navMobile.classList.contains('active')) {
-      burgerMenu.classList.remove('active');
-      navMobile.classList.remove('active');
-    }
+    closeMobileMenu();
   }
 });
 
@@ -153,10 +159,12 @@ revealElements.forEach(el => revealObserver.observe(el));
 document.querySelectorAll('.skill-tag').forEach(tag=>{
   const rating = Number(tag.getAttribute('data-rating') || 0);
   const container = tag.querySelector('.rating');
-  for (let i=1;i<=5;i++){
-    const dot = document.createElement('i');
-    dot.style.background = i <= rating ? 'var(--accent)' : 'rgba(255,255,255,0.06)';
-    container.appendChild(dot);
+  if (container) {
+    for (let i=1;i<=5;i++){
+      const dot = document.createElement('i');
+      dot.style.background = i <= rating ? 'var(--accent)' : 'rgba(255,255,255,0.06)';
+      container.appendChild(dot);
+    }
   }
 });
 
@@ -176,10 +184,12 @@ document.querySelectorAll('.value-card').forEach(card => {
 });
 
 // Close cards when clicking outside
-document.addEventListener('click', function() {
-  document.querySelectorAll('.value-card').forEach(card => {
-    card.classList.remove('active');
-  });
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.value-card')) {
+    document.querySelectorAll('.value-card').forEach(card => {
+      card.classList.remove('active');
+    });
+  }
 });
 
 // ==============================
@@ -236,11 +246,6 @@ document.addEventListener('keydown', function(event) {
       closeModal(modal.id);
     });
   }
-});
-
-// Add cursor pointer style to proficiency cards
-document.querySelectorAll('.proficiency-card').forEach(card => {
-  card.style.cursor = 'pointer';
 });
 
 // ==============================
