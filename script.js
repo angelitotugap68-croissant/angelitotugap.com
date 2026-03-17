@@ -239,12 +239,173 @@ document.querySelectorAll('.proficiency-card').forEach(card => {
   });
 });
 
-// Keyboard escape to close modal
+// Project 1 Learn More inline expand
+const project1Button = document.getElementById('project1LearnMore');
+const project1Expand = document.getElementById('project1Expand');
+let project1CloseTimer = null;
+
+if (project1Button && project1Expand) {
+  project1Button.addEventListener('click', function() {
+    const isOpen = project1Expand.style.display === 'block';
+    if (isOpen) {
+      project1Expand.style.display = 'none';
+      project1Button.textContent = 'Learn More ▼';
+    } else {
+      project1Expand.style.display = 'block';
+      project1Button.textContent = 'Hide Details ▲';
+    }
+  });
+
+  project1Expand.addEventListener('mouseleave', function() {
+    project1CloseTimer = setTimeout(() => {
+      project1Expand.style.display = 'none';
+      if (project1Button) {
+        project1Button.textContent = 'Learn More ▼';
+      }
+    }, 180);
+  });
+
+  project1Expand.addEventListener('mouseenter', function() {
+    if (project1CloseTimer) {
+      clearTimeout(project1CloseTimer);
+      project1CloseTimer = null;
+    }
+  });
+}
+
+// Project 2 Learn More inline expand
+const project2Button = document.getElementById('project2LearnMore');
+const project2Expand = document.getElementById('project2Expand');
+let project2CloseTimer = null;
+
+if (project2Button && project2Expand) {
+  project2Button.addEventListener('click', function() {
+    const isOpen = project2Expand.style.display === 'block';
+    if (isOpen) {
+      project2Expand.style.display = 'none';
+      project2Button.textContent = 'Learn More ▼';
+    } else {
+      project2Expand.style.display = 'block';
+      project2Button.textContent = 'Hide Details ▲';
+    }
+  });
+
+  project2Expand.addEventListener('mouseleave', function() {
+    project2CloseTimer = setTimeout(() => {
+      project2Expand.style.display = 'none';
+      if (project2Button) {
+        project2Button.textContent = 'Learn More ▼';
+      }
+    }, 180);
+  });
+
+  project2Expand.addEventListener('mouseenter', function() {
+    if (project2CloseTimer) {
+      clearTimeout(project2CloseTimer);
+      project2CloseTimer = null;
+    }
+  });
+}
+
+// Project 3 Learn More inline expand
+const project3Button = document.getElementById('project3LearnMore');
+const project3Expand = document.getElementById('project3Expand');
+let project3CloseTimer = null;
+
+if (project3Button && project3Expand) {
+  project3Button.addEventListener('click', function() {
+    const isOpen = project3Expand.style.display === 'block';
+    if (isOpen) {
+      project3Expand.style.display = 'none';
+      project3Button.textContent = 'Learn More ▼';
+    } else {
+      project3Expand.style.display = 'block';
+      project3Button.textContent = 'Hide Details ▲';
+    }
+  });
+
+  project3Expand.addEventListener('mouseleave', function() {
+    project3CloseTimer = setTimeout(() => {
+      project3Expand.style.display = 'none';
+      if (project3Button) {
+        project3Button.textContent = 'Learn More ▼';
+      }
+    }, 180);
+  });
+
+  project3Expand.addEventListener('mouseenter', function() {
+    if (project3CloseTimer) {
+      clearTimeout(project3CloseTimer);
+      project3CloseTimer = null;
+    }
+  });
+}
+
+// Project 4 Learn More inline expand
+const project4Button = document.getElementById('project4LearnMore');
+const project4Expand = document.getElementById('project4Expand');
+let project4CloseTimer = null;
+
+if (project4Button && project4Expand) {
+  project4Button.addEventListener('click', function() {
+    const isOpen = project4Expand.style.display === 'block';
+    if (isOpen) {
+      project4Expand.style.display = 'none';
+      project4Button.textContent = 'Learn More ▼';
+    } else {
+      project4Expand.style.display = 'block';
+      project4Button.textContent = 'Hide Details ▲';
+    }
+  });
+
+  project4Expand.addEventListener('mouseleave', function() {
+    project4CloseTimer = setTimeout(() => {
+      project4Expand.style.display = 'none';
+      if (project4Button) {
+        project4Button.textContent = 'Learn More ▼';
+      }
+    }, 180);
+  });
+
+  project4Expand.addEventListener('mouseenter', function() {
+    if (project4CloseTimer) {
+      clearTimeout(project4CloseTimer);
+      project4CloseTimer = null;
+    }
+  });
+}
+
+// Keyboard escape to close any open popups
+// (Modal code still works elsewhere.)
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     document.querySelectorAll('.modal.show').forEach(modal => {
       closeModal(modal.id);
     });
+    if (project1Expand) {
+      project1Expand.style.display = 'none';
+      if (project1Button) {
+        project1Button.textContent = 'Learn More ▼';
+      }
+    }
+    if (project2Expand) {
+      project2Expand.style.display = 'none';
+      if (project2Button) {
+        project2Button.textContent = 'Learn More ▼';
+      }
+    }
+    if (project3Expand) {
+      project3Expand.style.display = 'none';
+      if (project3Button) {
+        project3Button.textContent = 'Learn More ▼';
+      }
+    }
+    if (project4Expand) {
+      project4Expand.style.display = 'none';
+      if (project4Button) {
+        project4Button.textContent = 'Learn More ▼';
+      }
+    }
   }
 });
 
