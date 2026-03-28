@@ -1086,17 +1086,17 @@ footer{
     border-color:rgba(0,255,136,0.4);
 }
 .timeline-item .content1{
-    background:linear-gradient(135deg, rgba(228, 57, 23, 0.15) 0%, rgba(236,47,132,0.1) 100%);
+    background:linear-gradient(135deg, rgba(201, 51, 21, 0.349) 0%, rgba(179, 36, 100, 0.37) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:#0F172A;
+    color:#a70c4c;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content2{
-    background:linear-gradient(135deg, rgba(7, 197, 245, 0.15) 0%, rgba(92,181,201,0.1) 100%);
+    background:linear-gradient(135deg, rgba(7, 155, 192, 0.336) 0%, rgba(67, 129, 145, 0.274) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -1106,7 +1106,7 @@ footer{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content3{
-    background:linear-gradient(135deg, rgba(130, 4, 214, 0.15) 0%, rgba(236,56,188,0.1) 100%);
+    background:linear-gradient(135deg, rgba(112, 3, 184, 0.39) 0%, rgba(236,56,188,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -1116,7 +1116,7 @@ footer{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content4{
-    background:linear-gradient(135deg, rgba(77, 182, 17, 0.15) 0%, rgba(119,233,66,0.1) 100%);
+    background:linear-gradient(135deg, rgba(64, 156, 11, 0.384) 0%, rgba(83, 165, 46, 0.342) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -1126,7 +1126,7 @@ footer{
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content5{
-    background:linear-gradient(135deg, rgba(248, 184, 6, 0.15) 0%, rgba(226,107,47,0.1) 100%);
+    background:linear-gradient(135deg, rgba(177, 132, 10, 0.37) 0%, rgba(226,107,47,0.1) 100%);
     padding:16px;
     border-radius:0;
     box-shadow:none;
@@ -1175,7 +1175,7 @@ footer{
 .timeline-card li:hover{color:var(--accent);text-shadow:0 0 10px rgba(0,255,136,0.3)}
 .timeline-item.left::after{right:-7px}
 .timeline-item.right::after{left:-7px}
-.timeline-item .meta{color:var(--accent-alt);font-size:14px;margin-bottom:8px;font-family:'Courier New', monospace;letter-spacing:0.5px}
+.timeline-item .meta{color:#000000;font-size:15px;margin-bottom:8px;font-family:'Courier New', monospace;letter-spacing:0.3px}
 .timeline-item.visible{opacity:1;transform:none}
 
 /* Format Cert List */
