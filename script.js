@@ -155,42 +155,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 
-// Render rating dots for skill tags
-document.querySelectorAll('.skill-tag').forEach(tag=>{
-  const rating = Number(tag.getAttribute('data-rating') || 0);
-  const container = tag.querySelector('.rating');
-  if (container) {
-    for (let i=1;i<=5;i++){
-      const dot = document.createElement('i');
-      dot.style.background = i <= rating ? 'var(--accent)' : 'rgba(255,255,255,0.06)';
-      container.appendChild(dot);
-    }
-  }
-});
-
-// Value card click expansion
-document.querySelectorAll('.value-card').forEach(card => {
-  card.addEventListener('click', function(e) {
-    e.stopPropagation();
-    // Close other cards
-    document.querySelectorAll('.value-card').forEach(c => {
-      if (c !== this) {
-        c.classList.remove('active');
-      }
-    });
-    // Toggle current card
-    this.classList.toggle('active');
-  });
-});
-
-// Close cards when clicking outside
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.value-card')) {
-    document.querySelectorAll('.value-card').forEach(card => {
-      card.classList.remove('active');
-    });
-  }
-});
 
 // ==============================
 // MODAL SYSTEM - Glassmorphism HUD
