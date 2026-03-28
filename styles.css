@@ -1092,7 +1092,7 @@ footer{
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:var(--accent);
+    color:#0F172A;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content2{
@@ -1102,7 +1102,7 @@ footer{
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:var(--accent-alt);
+    color:#0EA5E9;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content3{
@@ -1112,7 +1112,7 @@ footer{
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:var(--accent-purple);
+    color:#7C3AED;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content4{
@@ -1122,7 +1122,7 @@ footer{
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:#77e942;
+    color:#16A34A;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item .content5{
@@ -1132,7 +1132,7 @@ footer{
     box-shadow:none;
     width:100%;
     text-align:left;
-    color:#ffcf4d;
+    color:#D97706;
     border-bottom:1px solid rgba(0,255,136,0.1);
 }
 .timeline-item.left{left:-10%;margin-right:46%}
@@ -1175,7 +1175,7 @@ footer{
 .timeline-card li:hover{color:var(--accent);text-shadow:0 0 10px rgba(0,255,136,0.3)}
 .timeline-item.left::after{right:-7px}
 .timeline-item.right::after{left:-7px}
-.timeline-item .meta{color:var(--accent-alt);font-size:12px;margin-bottom:8px;font-family:'Courier New', monospace;letter-spacing:0.5px}
+.timeline-item .meta{color:var(--accent-alt);font-size:14px;margin-bottom:8px;font-family:'Courier New', monospace;letter-spacing:0.5px}
 .timeline-item.visible{opacity:1;transform:none}
 
 /* Format Cert List */
