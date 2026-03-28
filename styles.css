@@ -1037,19 +1037,6 @@ footer{
 .job-experience-card{display:flex;flex-direction:column;overflow:hidden;border-radius:12px;max-width:1200px;margin:0 auto;width:100%;padding:0 20px}
 .job-header{background:linear-gradient(135deg, #6986a8 0%, #6986a8 100%);padding:3px;border-radius:12px;box-shadow:var(--shadow)}
 
-/* tag cloud and rating */
-.tag-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:flex-start}
-.skill-tag{background:linear-gradient(180deg, rgba(0,119,182,0.03), rgba(255,255,255,0.01));padding:8px 12px;border-radius:999px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:flex-start;gap:10px;position:relative}
-.skill-tag .rating{display:flex;gap:4px;margin-left:8px}
-.skill-tag .rating i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.08);display:inline-block;transition:all 220ms}
-
-/* skills container */
-.skills-container{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-start;max-width:1200px;margin:0 auto;width:100%;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:12px}
-.skill-item{flex:0 1 calc(33.333% - 11px);min-width:200px;padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:1;transition:opacity var(--transition)}
-.skill-item:hover{opacity:1;transform:none}
-.skill-item h4{margin:0 0 12px 0;font-size:14px;color:var(--text);opacity:1}
-.skill-rating{display:flex;gap:6px;justify-content:center;opacity:1}
-.other-skills-title{text-align:center;margin:24px 0 16px 0;font-size:18px;font-weight:700;color:var(--text)}
 
 /* Year markers - hidden */
 .year-marker-left,
@@ -1202,7 +1189,7 @@ footer{
 }
 .project-title{
     margin:0;
-    font-size:20px;
+    font-size:16px;
     font-weight:700;
     color:var(--text);
     text-align:center;
@@ -1242,7 +1229,7 @@ footer{
    ABOUT & PROFESSIONAL OVERVIEW
    =========================== */
 .about p{color:var(--muted)}
-.contact-info{width:100%;border-top:1px dashed rgba(255,255,255,0.1);padding-top:16px}
+.contact-info{width:100%;border-top:1px dashed rgba(247, 239, 239, 0.1);padding-top:16px}
 .contact-info h4{margin:0 0 12px 0;color:var(--text);font-size:14px;text-align:center}
 .contact{display:flex;flex-direction:column}
 .contact-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
@@ -1259,10 +1246,9 @@ footer{
 
 /* footer */
 .footer {
-    background:#FFFFFF;
+    background:linear-gradient(180deg, #0A122B 0%, #131E3A 60%, #0F172A 100%);
     padding: 60px 20px 30px;
     margin-top: 80px;
-    border-top:2px solid #E2E8F0;
     position:relative;
     overflow:hidden;
 }
@@ -1296,6 +1282,10 @@ footer{
 .footer-logo {
     margin-bottom: 16px;
     animation:float-in 0.8s ease-out;
+}
+
+.footer-logo p {
+    color: #ffffff;
 }
 
 .footer-logo-img {
@@ -1418,21 +1408,22 @@ footer{
 
 /* Footer Copyright */
 .footer-copyright {
-    color: var(--muted);
+    color: #ffffff;
     font-size: 13px;
     margin-top: 16px;
     animation:slide-in-right 1s ease-out 0.2s both;
     padding-top:20px;
-    border-top:1px solid #E2E8F0;
-}\n.footer-copyright p {
+    border-top:1px solid rgba(255,255,255,0.15);
+}
+.footer-copyright p {
     margin: 0;
     line-height: 1.6;
     letter-spacing:0.5px;
 }
 
 .colorlib-link {
-    color: var(--accent);
-    text-decoration: none;
+    color: #ffffff;
+    text-decoration: underline;
     transition: all var(--transition);
     position:relative;
 }
@@ -1481,7 +1472,7 @@ footer{
 .professional-left-column{display:flex;flex-direction:column;gap:24px}
 
 /* Professional Profile Card - Left */
-.professional-profile-card{background:#37465e;padding:32px;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(109, 7, 7, 0.06);display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff}
+.professional-profile-card{background:#51678a;padding:32px;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(109, 7, 7, 0.06);display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff}
 .professional-profile-card, .professional-profile-card *{color:#fff !important}
 .profile-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;margin-top:24px}
 .stat-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center}
@@ -1508,7 +1499,7 @@ footer{
 .overview-header h2{margin:0;font-size:28px;font-weight:700;color:#ffffff;text-align: center;}
 .core-expertise{display:flex;flex-direction:column;gap:16px}
 .core-expertise h4{margin:0 0 8px 0;font-size:16px;font-weight:700;color:var(--text)}
-.plain-cert{margin:0;padding:12px 14px;border-radius:10px;background:#f8fbff;border:1px solid #cbd5e1;color:#0f172a;font-size:15px;line-height:1.45;font-weight:600;box-shadow:0 6px 16px rgba(15,23,42,0.06);max-width:100%;white-space:normal;text-align:center}
+.plain-cert{margin:0;padding:12px 14px;border-radius:10px;background:#eef0f1;border:1px solid #cbd5e1;color:#0f172a;font-size:15px;line-height:1.45;font-weight:600;box-shadow:0 6px 16px rgba(15,23,42,0.06);max-width:100%;white-space:normal;text-align:center}
 
 .expertise-item{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;text-align:center;padding:16px;border-radius:8px;transition:all var(--transition);cursor:pointer}
 .expertise-icon{width:40px;height:40px;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border-radius:10px;font-size:20px;flex-shrink:0}
